@@ -1,0 +1,1328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛聚集地 | 官方网站 - 原创视频赛事社区</title>
+<meta name="description" content="每日大赛聚集地官方网站，专注原创视频赛事与创作者社区，提供高清作品展示、比赛报名与行业观察内容，打造值得信赖的赛事内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2315181d'/%3E%3Cpath d='M20 18l28 14-28 14z' fill='%23ff5a3c'/%3E%3C/svg%3E">
+<style>
+:root{
+  --dk-bg:#15181d;
+  --dk-panel:#1d2128;
+  --dk-panel2:#232830;
+  --dk-line:#2e343e;
+  --dk-text:#e8ebf0;
+  --dk-sub:#9aa3b2;
+  --dk-accent:#ff5a3c;
+  --dk-accent2:#ffd23f;
+  --dk-mint:#3ddc97;
+  --dk-radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--dk-bg);
+  color:var(--dk-text);
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+.dkc-wrap{max-width:1180px;margin:0 auto;padding:0 22px;}
+.dkc-anchor{scroll-margin-top:118px;}
+.dkc-h2{
+  font-size:clamp(22px,3vw,32px);
+  font-weight:800;
+  letter-spacing:.5px;
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:8px;
+}
+.dkc-h2::before{
+  content:"";
+  width:8px;height:26px;border-radius:3px;
+  background:linear-gradient(180deg,var(--dk-accent),var(--dk-accent2));
+  display:inline-block;
+}
+.dkc-h2-sub{color:var(--dk-sub);font-size:14px;margin-bottom:26px;letter-spacing:.4px;}
+.dkc-section{padding:64px 0;border-bottom:1px solid var(--dk-line);}
+.dkc-section:last-of-type{border-bottom:none;}
+.dkc-tag{
+  display:inline-block;font-size:12px;padding:3px 10px;border-radius:20px;
+  background:rgba(255,90,60,.12);color:var(--dk-accent);border:1px solid rgba(255,90,60,.35);
+  margin-right:6px;letter-spacing:.3px;
+}
+.dkc-tag--mint{background:rgba(61,220,151,.1);color:var(--dk-mint);border-color:rgba(61,220,151,.35);}
+.dkc-tag--yellow{background:rgba(255,210,63,.1);color:var(--dk-accent2);border-color:rgba(255,210,63,.35);}
+.dkc-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 22px;border-radius:30px;font-size:14px;font-weight:600;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.dkc-btn--primary{background:var(--dk-accent);color:#fff;box-shadow:0 6px 20px rgba(255,90,60,.3);}
+.dkc-btn--primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,90,60,.42);}
+.dkc-btn--ghost{border:1px solid var(--dk-line);color:var(--dk-text);background:var(--dk-panel);}
+.dkc-btn--ghost:hover{border-color:var(--dk-accent);color:var(--dk-accent);}
+.dkc-btn--mini{padding:6px 14px;font-size:12px;border-radius:20px;}
+
+/* 吸顶：公告 + 页头 */
+.dkc-sticky-shell{position:sticky;top:0;z-index:100;box-shadow:0 8px 30px rgba(0,0,0,.45);}
+.dkc-announce{
+  background:linear-gradient(90deg,#2a1410,#1d2128 45%,#101318);
+  border-bottom:1px solid var(--dk-line);
+  font-size:13px;color:#ffd9cf;
+  overflow:hidden;
+}
+.dkc-announce-inner{
+  max-width:1180px;margin:0 auto;padding:8px 22px;
+  display:flex;align-items:center;gap:12px;white-space:nowrap;overflow:hidden;
+}
+.dkc-announce-label{
+  flex:0 0 auto;background:var(--dk-accent);color:#fff;font-weight:700;
+  font-size:11px;padding:2px 9px;border-radius:4px;letter-spacing:1px;
+}
+.dkc-announce-marquee{
+  overflow:hidden;flex:1;min-width:0;position:relative;height:22px;
+}
+.dkc-announce-track{
+  display:flex;gap:52px;position:absolute;left:0;top:0;
+  animation:dkc-scroll 36s linear infinite;will-change:transform;
+}
+.dkc-announce-track span{color:#e9d2c9;}
+.dkc-announce-track b{color:var(--dk-accent2);font-weight:600;}
+@keyframes dkc-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.dkc-header{background:rgba(21,24,29,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--dk-line);}
+.dkc-header-inner{
+  max-width:1180px;margin:0 auto;padding:14px 22px;
+  display:flex;align-items:center;gap:26px;
+}
+.dkc-logo{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.dkc-logo-mark{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--dk-accent),#ff8a3d);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(255,90,60,.35);
+}
+.dkc-logo-mark svg{width:16px;height:16px;fill:#fff;}
+.dkc-logo-text{font-size:17px;font-weight:800;letter-spacing:.5px;}
+.dkc-logo-text small{display:block;font-size:10px;color:var(--dk-sub);letter-spacing:2.5px;font-weight:400;}
+.dkc-nav{display:flex;gap:4px;flex:1;min-width:0;flex-wrap:wrap;}
+.dkc-nav a{
+  font-size:14px;color:var(--dk-sub);padding:7px 12px;border-radius:8px;
+  transition:color .18s,background .18s;white-space:nowrap;
+}
+.dkc-nav a:hover{color:var(--dk-text);background:var(--dk-panel2);}
+.dkc-header-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.dkc-search{position:relative;display:flex;align-items:center;}
+.dkc-search input{
+  width:210px;background:var(--dk-panel2);border:1px solid var(--dk-line);
+  border-radius:24px;padding:9px 40px 9px 16px;color:var(--dk-text);font-size:13px;outline:none;
+  transition:border-color .2s,width .25s;
+}
+.dkc-search input:focus{border-color:var(--dk-accent);width:240px;}
+.dkc-search button{
+  position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  width:28px;height:28px;border-radius:50%;background:var(--dk-accent);
+  display:flex;align-items:center;justify-content:center;
+}
+.dkc-search button svg{width:13px;height:13px;fill:#fff;}
+.dkc-search-feedback{
+  position:absolute;top:46px;left:0;right:0;
+  background:var(--dk-panel2);border:1px solid var(--dk-line);border-radius:10px;
+  padding:10px 14px;font-size:12.5px;color:var(--dk-sub);display:none;z-index:50;
+  box-shadow:0 14px 30px rgba(0,0,0,.5);
+}
+.dkc-search-feedback.dkc-show{display:block;}
+.dkc-burger{display:none;width:40px;height:40px;border-radius:10px;background:var(--dk-panel2);align-items:center;justify-content:center;border:1px solid var(--dk-line);}
+.dkc-burger span{display:block;width:18px;height:2px;background:var(--dk-text);position:relative;}
+.dkc-burger span::before,.dkc-burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--dk-text);}
+.dkc-burger span::before{top:-6px;}
+.dkc-burger span::after{top:6px;}
+
+/* HERO 全幅主视觉背景与浮动文字 */
+.dkc-hero{position:relative;overflow:hidden;border-bottom:1px solid var(--dk-line);}
+.dkc-hero-bg{position:absolute;inset:0;z-index:0;}
+.dkc-hero-bg svg{width:100%;height:100%;}
+.dkc-hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,rgba(15,17,21,.96) 0%,rgba(15,17,21,.86) 42%,rgba(15,17,21,.35) 78%,rgba(15,17,21,.6) 100%);
+}
+.dkc-hero-inner{
+  position:relative;z-index:2;max-width:1180px;margin:0 auto;
+  padding:80px 22px 72px;
+}
+.dkc-hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,90,60,.14);border:1px solid rgba(255,90,60,.4);
+  color:#ffb6a4;font-size:12.5px;padding:6px 16px;border-radius:30px;letter-spacing:1px;
+  margin-bottom:22px;
+}
+.dkc-hero-badge i{width:7px;height:7px;border-radius:50%;background:var(--dk-accent);display:inline-block;animation:dkc-pulse 1.6s infinite;}
+@keyframes dkc-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+.dkc-hero h1{
+  font-size:clamp(38px,6vw,68px);
+  line-height:1.08;font-weight:900;letter-spacing:1px;
+  margin-bottom:18px;
+  background:linear-gradient(120deg,#ffffff 25%,#ffb6a4 70%,#ffd23f 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.dkc-hero-lead{font-size:clamp(15px,1.8vw,18px);color:#c9d0da;max-width:640px;margin-bottom:22px;}
+.dkc-hero-intro{
+  font-size:14.5px;color:var(--dk-sub);max-width:690px;
+  border-left:3px solid var(--dk-accent);padding-left:16px;margin-bottom:32px;
+}
+.dkc-hero-stats{display:flex;gap:44px;flex-wrap:wrap;margin-bottom:34px;}
+.dkc-stat-num{
+  font-size:30px;font-weight:900;color:var(--dk-accent2);letter-spacing:.5px;
+  font-variant-numeric:tabular-nums;
+}
+.dkc-stat-num small{font-size:14px;color:var(--dk-sub);font-weight:600;margin-left:3px;}
+.dkc-stat-label{font-size:12.5px;color:var(--dk-sub);letter-spacing:.6px;}
+.dkc-hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+/* 通用网格 */
+.dkc-grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(0,1fr));}
+.dkc-card{
+  background:var(--dk-panel);border:1px solid var(--dk-line);border-radius:var(--dk-radius);
+  overflow:hidden;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.dkc-card:hover{transform:translateY(-4px);border-color:#3b434f;box-shadow:0 16px 34px rgba(0,0,0,.4);}
+.dkc-cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0e1116;}
+.dkc-cover svg{width:100%;height:100%;}
+.dkc-cover .dkc-play{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(10,12,16,.18);transition:background .2s;
+}
+.dkc-card:hover .dkc-play{background:rgba(10,12,16,.02);}
+.dkc-play-btn{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(255,90,60,.92);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(255,90,60,.5);
+  transform:scale(.94);transition:transform .2s;
+}
+.dkc-card:hover .dkc-play-btn{transform:scale(1.06);}
+.dkc-play-btn svg{width:18px;height:18px;fill:#fff;margin-left:3px;}
+.dkc-cover-dur{
+  position:absolute;right:10px;bottom:8px;background:rgba(0,0,0,.72);
+  font-size:11.5px;padding:2px 8px;border-radius:4px;color:#dfe4ec;letter-spacing:.5px;
+}
+.dkc-card-body{padding:16px 18px 18px;}
+.dkc-card-title{font-size:16px;font-weight:700;line-height:1.45;margin-bottom:8px;}
+.dkc-card-desc{font-size:13px;color:var(--dk-sub);line-height:1.65;margin-bottom:12px;}
+.dkc-meta{font-size:12px;color:#7c8595;display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px;}
+.dkc-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.dkc-act{
+  font-size:12px;color:var(--dk-sub);border:1px solid var(--dk-line);
+  padding:4px 11px;border-radius:20px;display:inline-flex;align-items:center;gap:5px;
+  background:var(--dk-panel2);transition:all .18s;
+}
+.dkc-act:hover{border-color:var(--dk-accent);color:var(--dk-accent);}
+.dkc-act.dkc-on{color:var(--dk-accent);border-color:var(--dk-accent);background:rgba(255,90,60,.1);}
+.dkc-act--fav.dkc-on{color:#ff7ba8;border-color:#ff7ba8;background:rgba(255,123,168,.1);}
+
+/* 焦点大图 + 文字列表 */
+.dkc-focus-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:30px;align-items:start;}
+.dkc-focus-main .dkc-card-title{font-size:22px;}
+.dkc-focus-main .dkc-card-desc{font-size:14px;}
+.dkc-list-item{
+  display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--dk-line);
+}
+.dkc-list-item:last-child{border-bottom:none;}
+.dkc-list-num{
+  flex:0 0 30px;height:30px;border-radius:8px;background:var(--dk-panel2);
+  color:var(--dk-accent);font-weight:800;font-size:14px;
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--dk-line);
+}
+.dkc-list-body{min-width:0;flex:1;}
+.dkc-list-title{font-size:15px;font-weight:600;margin-bottom:4px;line-height:1.5;}
+.dkc-list-desc{font-size:12.5px;color:var(--dk-sub);line-height:1.6;margin-bottom:6px;}
+
+/* 专题 */
+.dkc-topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+.dkc-topic-card{
+  background:linear-gradient(160deg,var(--dk-panel),#191d24);
+  border:1px solid var(--dk-line);border-radius:var(--dk-radius);padding:22px;
+  position:relative;overflow:hidden;transition:transform .2s,border-color .2s;
+}
+.dkc-topic-card:hover{transform:translateY(-4px);border-color:rgba(255,90,60,.5);}
+.dkc-topic-card::after{
+  content:"";position:absolute;right:-40px;top:-40px;width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,90,60,.14),transparent 70%);
+}
+.dkc-topic-card h3{font-size:18px;margin-bottom:8px;}
+.dkc-topic-status{
+  font-size:11.5px;color:var(--dk-mint);letter-spacing:.5px;margin-bottom:14px;display:inline-block;
+}
+.dkc-topic-list li{
+  font-size:13px;color:var(--dk-sub);padding:7px 0 7px 16px;position:relative;line-height:1.55;
+  border-bottom:1px dashed rgba(46,52,62,.7);
+}
+.dkc-topic-list li:last-child{border-bottom:none;}
+.dkc-topic-list li::before{
+  content:"";position:absolute;left:0;top:15px;width:6px;height:6px;border-radius:50%;
+  background:var(--dk-accent);opacity:.8;
+}
+
+/* 创作者矩阵 双列简介 */
+.dkc-author-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+.dkc-author{
+  background:var(--dk-panel);border:1px solid var(--dk-line);border-radius:var(--dk-radius);
+  padding:20px;transition:border-color .2s,transform .2s;
+}
+.dkc-author:hover{border-color:#3d4450;transform:translateY(-3px);}
+.dkc-author-head{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.dkc-avatar{
+  width:56px;height:56px;border-radius:50%;flex:0 0 56px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:800;color:#fff;letter-spacing:1px;
+  border:2px solid rgba(255,255,255,.14);
+}
+.dkc-author-name{font-size:16px;font-weight:700;}
+.dkc-author-field{font-size:12px;color:var(--dk-accent);letter-spacing:.4px;}
+.dkc-author-nums{display:flex;gap:18px;font-size:12px;color:var(--dk-sub);margin-bottom:10px;}
+.dkc-author-nums b{color:var(--dk-text);font-size:13.5px;}
+.dkc-author-bio{font-size:13px;color:var(--dk-sub);line-height:1.7;}
+
+/* 评价 */
+.dkc-comment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+.dkc-comment{
+  background:var(--dk-panel);border:1px solid var(--dk-line);border-radius:var(--dk-radius);
+  padding:18px 20px;position:relative;
+}
+.dkc-comment::before{
+  content:"“";position:absolute;top:2px;right:16px;font-size:52px;color:rgba(255,90,60,.16);line-height:1;font-family:Georgia,serif;
+}
+.dkc-comment-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.dkc-comment-avatar{
+  width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:#fff;
+}
+.dkc-comment-name{font-size:13.5px;font-weight:600;}
+.dkc-comment-time{font-size:11px;color:#6c7484;}
+.dkc-comment-text{font-size:13.5px;color:#c3cad5;line-height:1.7;}
+.dkc-stars{color:var(--dk-accent2);font-size:12px;letter-spacing:2px;margin-top:10px;}
+
+/* 解析长文 */
+.dkc-article{max-width:860px;}
+.dkc-article h3{
+  font-size:18px;margin:28px 0 10px;color:#fff;position:relative;padding-left:16px;
+}
+.dkc-article h3::before{
+  content:"";position:absolute;left:0;top:6px;bottom:6px;width:4px;border-radius:2px;
+  background:linear-gradient(180deg,var(--dk-accent),var(--dk-accent2));
+}
+.dkc-article h3:first-child{margin-top:0;}
+.dkc-article p{font-size:14.5px;color:#b9c1cc;line-height:1.9;margin-bottom:12px;text-indent:2em;}
+.dkc-article strong{color:#ffb6a4;font-weight:600;}
+
+/* FAQ */
+.dkc-faq-list{display:grid;gap:12px;max-width:900px;}
+.dkc-faq-list details{
+  background:var(--dk-panel);border:1px solid var(--dk-line);border-radius:10px;
+  padding:0 20px;transition:border-color .2s;
+}
+.dkc-faq-list details[open]{border-color:rgba(255,90,60,.45);}
+.dkc-faq-list summary{
+  list-style:none;cursor:pointer;padding:16px 0;font-size:14.5px;font-weight:600;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.dkc-faq-list summary::-webkit-details-marker{display:none;}
+.dkc-faq-list summary::after{
+  content:"+";font-size:20px;color:var(--dk-accent);font-weight:400;transition:transform .2s;flex:0 0 auto;
+}
+.dkc-faq-list details[open] summary::after{transform:rotate(45deg);}
+.dkc-faq-answer{font-size:13.5px;color:var(--dk-sub);line-height:1.8;padding:0 0 18px;}
+
+/* 动态 */
+.dkc-news-list{max-width:900px;}
+.dkc-news-item{
+  display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--dk-line);align-items:baseline;
+}
+.dkc-news-item:last-child{border-bottom:none;}
+.dkc-news-date{flex:0 0 92px;font-size:12.5px;color:#6c7484;font-variant-numeric:tabular-nums;}
+.dkc-news-title{font-size:14.5px;font-weight:600;margin-bottom:3px;}
+.dkc-news-desc{font-size:12.5px;color:var(--dk-sub);}
+
+/* 合作墙 */
+.dkc-partner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;}
+.dkc-partner{
+  background:var(--dk-panel);border:1px solid var(--dk-line);border-radius:10px;
+  padding:20px 14px;text-align:center;font-size:14px;font-weight:700;letter-spacing:1px;
+  color:#cdd4df;transition:all .2s;
+}
+.dkc-partner small{display:block;font-size:11px;color:#6c7484;font-weight:400;letter-spacing:.5px;margin-top:5px;}
+.dkc-partner:hover{border-color:rgba(255,90,60,.5);color:#fff;transform:translateY(-3px);}
+
+/* 投稿/联系 */
+.dkc-cta-box{
+  background:linear-gradient(120deg,#22160f,#1d2128 55%,#171a20);
+  border:1px solid rgba(255,90,60,.28);border-radius:18px;
+  padding:36px 32px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;
+}
+.dkc-cta-box h3{font-size:22px;margin-bottom:8px;}
+.dkc-cta-box p{font-size:13.5px;color:var(--dk-sub);max-width:560px;}
+
+/* Footer */
+.dkc-footer{background:#101318;border-top:1px solid var(--dk-line);padding:52px 0 30px;margin-top:20px;}
+.dkc-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:32px;margin-bottom:36px;}
+.dkc-footer-brand p{font-size:13px;color:var(--dk-sub);line-height:1.8;margin-top:12px;max-width:320px;}
+.dkc-footer h4{font-size:14px;margin-bottom:14px;letter-spacing:.5px;}
+.dkc-footer li{font-size:13px;color:var(--dk-sub);margin-bottom:9px;transition:color .18s;}
+.dkc-footer li:hover{color:var(--dk-accent);}
+.dkc-footer-bottom{
+  border-top:1px solid var(--dk-line);padding-top:22px;font-size:12.5px;color:#5f6775;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+
+/* 弹窗 */
+.dkc-modal{
+  position:fixed;inset:0;z-index:400;display:none;align-items:center;justify-content:center;
+  background:rgba(6,8,11,.78);padding:22px;backdrop-filter:blur(4px);
+}
+.dkc-modal.dkc-open{display:flex;}
+.dkc-modal-box{
+  background:var(--dk-panel);border:1px solid #3a414d;border-radius:16px;
+  max-width:480px;width:100%;padding:28px;position:relative;
+  box-shadow:0 30px 70px rgba(0,0,0,.6);max-height:86vh;overflow:auto;
+}
+.dkc-modal-box h3{font-size:19px;margin-bottom:14px;}
+.dkc-modal-box p{font-size:13.5px;color:var(--dk-sub);line-height:1.8;margin-bottom:10px;}
+.dkc-modal-close{
+  position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;
+  background:var(--dk-panel2);color:var(--dk-sub);font-size:18px;line-height:1;
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--dk-line);
+}
+.dkc-modal-close:hover{color:var(--dk-accent);border-color:var(--dk-accent);}
+.dkc-modal-field{width:100%;background:var(--dk-panel2);border:1px solid var(--dk-line);border-radius:10px;padding:10px 14px;color:var(--dk-text);font-size:13.5px;margin-bottom:12px;outline:none;font-family:inherit;}
+.dkc-modal-field:focus{border-color:var(--dk-accent);}
+.dkc-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+.dkc-share-row button{background:var(--dk-panel2);border:1px solid var(--dk-line);padding:9px 16px;border-radius:10px;font-size:13px;color:#cdd4df;transition:all .18s;}
+.dkc-share-row button:hover{border-color:var(--dk-accent);color:var(--dk-accent);}
+.dkc-author-modal .dkc-avatar{width:72px;height:72px;flex:0 0 72px;font-size:26px;margin-bottom:4px;}
+
+/* Toast */
+.dkc-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+  background:#262d36;border:1px solid #3d4753;color:var(--dk-text);
+  padding:12px 22px;border-radius:30px;font-size:13.5px;z-index:500;
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;
+  box-shadow:0 14px 36px rgba(0,0,0,.55);
+}
+.dkc-toast.dkc-show{opacity:1;transform:translate(-50%,0);}
+
+/* 回到顶部 */
+.dkc-top-btn{
+  position:fixed;right:22px;bottom:26px;width:46px;height:46px;border-radius:50%;
+  background:var(--dk-accent);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px rgba(255,90,60,.4);z-index:200;
+  opacity:0;pointer-events:none;transform:translateY(14px);transition:all .25s;
+}
+.dkc-top-btn.dkc-show{opacity:1;pointer-events:auto;transform:translateY(0);}
+.dkc-top-btn svg{width:18px;height:18px;fill:#fff;}
+
+@media (max-width:980px){
+  .dkc-focus-layout{grid-template-columns:1fr;}
+  .dkc-footer-grid{grid-template-columns:1fr 1fr;}
+  .dkc-search input{width:150px;}
+  .dkc-search input:focus{width:180px;}
+}
+@media (max-width:760px){
+  .dkc-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:#181c22;border-bottom:1px solid var(--dk-line);
+    padding:12px 22px;flex-direction:column;gap:2px;
+    max-height:60vh;overflow:auto;
+  }
+  .dkc-nav.dkc-open{display:flex;}
+  .dkc-header{position:relative;}
+  .dkc-burger{display:flex;}
+  .dkc-search{display:none;}
+  .dkc-header-inner{gap:12px;}
+  .dkc-hero-inner{padding:56px 22px 50px;}
+  .dkc-hero-stats{gap:26px;}
+  .dkc-footer-grid{grid-template-columns:1fr;}
+  .dkc-announce-inner{padding:7px 16px;gap:8px;}
+  .dkc-section{padding:46px 0;}
+  .dkc-anchor{scroll-margin-top:104px;}
+  .dkc-cta-box{padding:26px 22px;}
+  .dkc-list-item{gap:10px;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="dkc-sticky-shell">
+  <div class="dkc-announce">
+    <div class="dkc-announce-inner">
+      <span class="dkc-announce-label">官方发布</span>
+      <div class="dkc-announce-marquee">
+        <div class="dkc-announce-track" id="dkcAnnounceTrack">
+          <span><b>11·22 冬季挑战赛</b> 报名进入最后 48 小时，投递通道将于 23 日 22:00 关闭</span>
+          <span><b>新人扶持计划第 6 期</b> 名单公布，共 128 位创作者获得高清创作资源包</span>
+          <span><b>企业动态</b> 与四家赛事主办方达成年度内容生态合作</span>
+          <span><b>新增赛区</b> 城市影像赛道正式上线，开放短片与纪录单元</span>
+          <span><b>11·22 冬季挑战赛</b> 报名进入最后 48 小时，投递通道将于 23 日 22:00 关闭</span>
+          <span><b>新人扶持计划第 6 期</b> 名单公布，共 128 位创作者获得高清创作资源包</span>
+          <span><b>企业动态</b> 与四家赛事主办方达成年度内容生态合作</span>
+          <span><b>新增赛区</b> 城市影像赛道正式上线，开放短片与纪录单元</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="dkc-header">
+    <div class="dkc-header-inner">
+      <a href="#dkcHero" class="dkc-logo">
+        <span class="dkc-logo-mark">
+          <svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>
+        </span>
+        <span class="dkc-logo-text">每日大赛聚集地<small>DAILY ARENA</small></span>
+      </a>
+      <nav class="dkc-nav" id="dkcNav">
+        <a href="#dkcFocus">焦点赛事</a>
+        <a href="#dkcTopics">专题企划</a>
+        <a href="#dkcAuthors">创作者</a>
+        <a href="#dkcInsight">平台解析</a>
+        <a href="#dkcComments">用户口碑</a>
+        <a href="#dkcNews">企业动态</a>
+        <a href="#dkcFaq">帮助中心</a>
+      </nav>
+      <div class="dkc-header-tools">
+        <div class="dkc-search">
+          <input type="text" id="dkcSearchInput" placeholder="搜索赛事 / 创作者 / 专题" aria-label="站内搜索">
+          <button type="button" id="dkcSearchBtn" aria-label="搜索">
+            <svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 105.29 14.02l4.34 4.34 1.42-1.42-4.34-4.34A8 8 0 0010 2zm0 2.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"/></svg>
+          </button>
+          <div class="dkc-search-feedback" id="dkcSearchFeedback"></div>
+        </div>
+        <button class="dkc-burger" id="dkcBurger" aria-label="展开导航" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- HERO -->
+<section class="dkc-hero" id="dkcHero">
+  <div class="dkc-hero-bg" aria-hidden="true">
+    <svg viewBox="0 0 1400 760" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="dkcHg1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#1a1f27"/><stop offset=".55" stop-color="#241a1a"/><stop offset="1" stop-color="#12151b"/>
+        </linearGradient>
+        <radialGradient id="dkcHg2" cx=".78" cy=".3" r=".6">
+          <stop offset="0" stop-color="#ff5a3c" stop-opacity=".5"/><stop offset="1" stop-color="#ff5a3c" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="dkcHg3" cx=".3" cy=".82" r=".55">
+          <stop offset="0" stop-color="#3ddc97" stop-opacity=".18"/><stop offset="1" stop-color="#3ddc97" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1400" height="760" fill="url(#dkcHg1)"/>
+      <rect width="1400" height="760" fill="url(#dkcHg2)"/>
+      <rect width="1400" height="760" fill="url(#dkcHg3)"/>
+      <g stroke="#ff5a3c" stroke-opacity=".16" fill="none">
+        <circle cx="1080" cy="230" r="120"/>
+        <circle cx="1080" cy="230" r="180"/>
+        <circle cx="1080" cy="230" r="245" stroke-opacity=".1"/>
+        <circle cx="1080" cy="230" r="310" stroke-opacity=".06"/>
+      </g>
+      <g fill="#ffd23f" fill-opacity=".5">
+        <circle cx="1080" cy="230" r="4"/>
+        <circle cx="1210" cy="330" r="3"/>
+        <circle cx="920" cy="380" r="3"/>
+      </g>
+      <g stroke="#3ddc97" stroke-opacity=".14" fill="none" stroke-width="1.2">
+        <path d="M0 620 L240 520 L480 590 L720 470 L960 540 L1200 430 L1400 500"/>
+      </g>
+      <g fill="#232a34" fill-opacity=".7">
+        <rect x="760" y="410" width="220" height="140" rx="12"/>
+        <rect x="1000" y="450" width="180" height="100" rx="12"/>
+        <rect x="860" y="560" width="240" height="120" rx="12"/>
+      </g>
+      <g fill="#ff5a3c" fill-opacity=".8">
+        <polygon points="860,470 900,450 900,490"/>
+      </g>
+    </svg>
+  </div>
+  <div class="dkc-hero-overlay"></div>
+  <div class="dkc-hero-inner">
+    <span class="dkc-hero-badge"><i></i>官方网站 · 持续运营中的原创赛事内容社区</span>
+    <h1>每日大赛聚集地</h1>
+    <p class="dkc-hero-lead">每一天，都有新的比赛在这里开赛；每一帧，都有真实的创作者被看见。</p>
+    <p class="dkc-hero-intro">
+      每日大赛聚集地是一个面向赛事与原创影像的垂直内容平台。我们聚合每日公开的创作挑战、影像比赛与创作者作品，为品牌、赛事主办方与个人创作者搭建高品质的内容生态。作为值得信赖的官方发布窗口，平台坚持正版、高清、原创的内容标准，深耕赛事内容领域，让比赛不再只是结果，而是一段可被记录、可被分享的成长陪伴过程。
+    </p>
+    <div class="dkc-hero-stats">
+      <div>
+        <div class="dkc-stat-num">1,280<small>+</small></div>
+        <div class="dkc-stat-label">在办与已办赛事</div>
+      </div>
+      <div>
+        <div class="dkc-stat-num">36.7<small>万</small></div>
+        <div class="dkc-stat-label">注册创作者</div>
+      </div>
+      <div>
+        <div class="dkc-stat-num">4.9<small>/5</small></div>
+        <div class="dkc-stat-label">用户综合口碑评分</div>
+      </div>
+    </div>
+    <div class="dkc-hero-actions">
+      <a href="#dkcFocus" class="dkc-btn dkc-btn--primary">进入焦点赛事</a>
+      <button class="dkc-btn dkc-btn--ghost" data-dkc-modal="dkcSubmitModal">我要投稿参赛</button>
+      <button class="dkc-btn dkc-btn--ghost" data-dkc-modal="dkcReportModal">反馈与举报</button>
+    </div>
+  </div>
+</section>
+
+<!-- 焦点赛事 -->
+<section class="dkc-section dkc-anchor" id="dkcFocus">
+  <div class="dkc-wrap">
+    <h2 class="dkc-h2">焦点赛事与今日推荐</h2>
+    <p class="dkc-h2-sub">每日大赛聚集地官网精选：一场重点挑战赛领衔，四档风格不同的赛事同步开放</p>
+
+    <div class="dkc-focus-layout">
+      <div class="dkc-card dkc-focus-main">
+        <div class="dkc-cover">
+          <svg viewBox="0 0 640 360" role="img" aria-label="冬季影像挑战赛焦点海报：雪原上手持摄影机的创作者剪影">
+            <defs>
+              <linearGradient id="dkcF1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2b3646"/><stop offset=".6" stop-color="#3a4657"/><stop offset="1" stop-color="#dfe6ee"/>
+              </linearGradient>
+              <linearGradient id="dkcF1b" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#ff5a3c" stop-opacity=".85"/><stop offset="1" stop-color="#ffd23f" stop-opacity=".1"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="url(#dkcF1)"/>
+            <circle cx="500" cy="96" r="52" fill="#ffd23f" fill-opacity=".85"/>
+            <path d="M0 250 Q120 210 260 244 T640 226 L640 360 L0 360Z" fill="#eef2f7"/>
+            <path d="M0 286 Q160 254 320 282 T640 268 L640 360 L0 360Z" fill="#c9d4e2"/>
+            <g fill="#1b222b">
+              <circle cx="230" cy="212" r="18"/>
+              <rect x="212" y="228" width="38" height="62" rx="14"/>
+              <rect x="248" y="238" width="30" height="18" rx="4"/>
+              <circle cx="284" cy="242" r="9"/>
+            </g>
+            <rect x="30" y="30" width="150" height="34" rx="8" fill="url(#dkcF1b)"/>
+            <text x="46" y="53" font-family="sans-serif" font-size="16" font-weight="bold" fill="#8a1f0c">冬季挑战赛</text>
+            <g stroke="#ffffff" stroke-opacity=".35"><path d="M0 120 H640"/><path d="M0 160 H640"/></g>
+          </svg>
+          <div class="dkc-play"><span class="dkc-play-btn"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></div>
+          <span class="dkc-cover-dur">18:42</span>
+        </div>
+        <div class="dkc-card-body">
+          <span class="dkc-tag">头条</span><span class="dkc-tag dkc-tag--yellow">报名中</span>
+          <h3 class="dkc-card-title" style="margin-top:10px;">11·22 冬季影像挑战赛：用三分钟讲完一个寒冬故事</h3>
+          <p class="dkc-card-desc">本届挑战赛围绕「寒冬里的热气」命题，设置纪录、剧情、实验影像三条赛道。投稿需为原创高清作品，时长 1 至 3 分钟，评审团由纪录片导演、影像策展人与平台内容主编共同组成。目前已有 1,904 位创作者上传作品，报名通道将于 23 日 22:00 关闭。</p>
+          <div class="dkc-meta">
+            <span>主办：每日大赛聚集地</span><span>播放 42.6 万</span><span>收藏 8,214</span>
+          </div>
+          <div class="dkc-actions">
+            <button class="dkc-act dkc-like" data-count="12800">赞 <b>1.28万</b></button>
+            <button class="dkc-act dkc-act--fav dkc-fav">收藏</button>
+            <button class="dkc-act" data-dkc-modal="dkcShareModal">分享</button>
+            <button class="dkc-act" data-dkc-modal="dkcSubmitModal">报名参赛</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="dkc-list-item">
+          <span class="dkc-list-num">01</span>
+          <div class="dkc-list-body">
+            <h3 class="dkc-list-title">一分钟城市切片：地铁末班车里的三十种表情</h3>
+            <p class="dkc-list-desc">城市探索赛道人气作品，作者用固定机位记录末班车厢，捕捉疲惫与松弛并存的一刻。</p>
+            <div class="dkc-meta"><span>@夜行记</span><span>播放 18.2 万</span><span>点赞 6,402</span></div>
+            <div class="dkc-actions">
+              <button class="dkc-act dkc-like" data-count="6402">赞 <b>6402</b></button>
+              <button class="dkc-act dkc-act--fav dkc-fav">收藏</button>
+            </div>
+          </div>
+        </div>
+        <div class="dkc-list-item">
+          <span class="dkc-list-num">02</span>
+          <div class="dkc-list-body">
+            <h3 class="dkc-list-title">厨房里的第一场雪：家庭甜点制作全流程拆解</h3>
+            <p class="dkc-list-desc">美食烹饪赛道教程向作品，从原料配比到糖霜结晶，逐步骤标注时间轴，适合新手跟拍。</p>
+            <div class="dkc-meta"><span>@烤箱边的人</span><span>播放 15.7 万</span><span>点赞 5,118</span></div>
+            <div class="dkc-actions">
+              <button class="dkc-act dkc-like" data-count="5118">赞 <b>5118</b></button>
+              <button class="dkc-act dkc-act--fav dkc-fav">收藏</button>
+            </div>
+          </div>
+        </div>
+        <div class="dkc-list-item">
+          <span class="dkc-list-num">03</span>
+          <div class="dkc-list-body">
+            <h3 class="dkc-list-title">赛前三十天：一位业余跑者的训练记录与自我和解</h3>
+            <p class="dkc-list-desc">健康运动赛道纪录短片，主角为通勤族跑者，训练计划、身体数据与心理波动均如实呈现。</p>
+            <div class="dkc-meta"><span>@慢跑的方向</span><span>播放 12.9 万</span><span>点赞 4,376</span></div>
+            <div class="dkc-actions">
+              <button class="dkc-act dkc-like" data-count="4376">赞 <b>4376</b></button>
+              <button class="dkc-act dkc-act--fav dkc-fav">收藏</button>
+            </div>
+          </div>
+        </div>
+        <div class="dkc-list-item">
+          <span class="dkc-list-num">04</span>
+          <div class="dkc-list-body">
+            <h3 class="dkc-list-title">把旧相机修好需要几步：一场手作修复的完整实录</h3>
+            <p class="dkc-list-desc">手作 DIY 赛道深度测评，拆解五台故障机，记录工具清单、常见故障与修复成本对照。</p>
+            <div class="dkc-meta"><span>@螺丝与光</span><span>播放 9.8 万</span><span>点赞 3,905</span></div>
+            <div class="dkc-actions">
+              <button class="dkc-act dkc-like" data-count="3905">赞 <b>3905</b></button>
+              <button class="dkc-act dkc-act--fav dkc-fav">收藏</button>
+            </div>
+          </div>
+        </div>
+        <div class="dkc-list-item">
+          <span class="dkc-list-num">05</span>
+          <div class="dkc-list-body">
+            <h3 class="dkc-list-title">评审圆桌：什么样的投稿能在三十秒内被记住</h3>
+            <p class="dkc-list-desc">行业观察访谈，三位评审谈开场设计、信息密度与结尾留白，附投稿常见失误清单。</p>
+            <div class="dkc-meta"><span>@赛事观察室</span><span>播放 7.4 万</span><span>点赞 2,860</span></div>
+            <div class="dkc-actions">
+              <button class="dkc-act dkc-like" data-count="2860">赞 <b>2860</b></button>
+              <button class="dkc-act dkc-act--fav dkc-fav">收藏</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 专题企划 -->
+<section class="dkc-section dkc-anchor" id="dkcTopics">
+  <div class="dkc-wrap">
+    <h2 class="dkc-h2">专题企划与季度主题</h2>
+    <p class="dkc-h2-sub">围绕每日大赛聚集地的赛事主线，官网每季度推出三到五个专题企划，持续运营精选内容</p>
+
+    <div class="dkc-topic-grid">
+      <article class="dkc-topic-card">
+        <h3>寒冬热气计划</h3>
+        <span class="dkc-topic-status">● 更新中 · 第 3 周</span>
+        <ul class="dkc-topic-list">
+          <li>《楼道里的暖气片》纪录短片，讲述老小区供暖季的邻里日常</li>
+          <li>《一碗汤的距离》美食短片，三座城市的冬日餐桌对照</li>
+          <li>《凌晨四点的早市》城市探索，跟随摊主完成一次进货</li>
+        </ul>
+      </article>
+      <article class="dkc-topic-card">
+        <h3>新人第一支片</h3>
+        <span class="dkc-topic-status">● 更新中 · 长期企划</span>
+        <ul class="dkc-topic-list">
+          <li>《我只有一台手机》入门教程，稳定器替代方案实测</li>
+          <li>《第一次剪片踩的坑》经验分享，时间轴整理方法示范</li>
+          <li>《被退稿之后》人物访谈，三位新人讲述重投经历</li>
+        </ul>
+      </article>
+      <article class="dkc-topic-card">
+        <h3>城市影像档案</h3>
+        <span class="dkc-topic-status">● 已完结 · 共 12 期</span>
+        <ul class="dkc-topic-list">
+          <li>《桥上的人》在地文化纪录，一座老桥的六十年</li>
+          <li>《夜班公交路线图》城市探索，末班线路上的乘客群像</li>
+          <li>《菜市场的色彩学》艺术美学，摊位上的一次色彩采集</li>
+        </ul>
+      </article>
+      <article class="dkc-topic-card">
+        <h3>赛事幕后手记</h3>
+        <span class="dkc-topic-status">● 更新中 · 每周三更</span>
+        <ul class="dkc-topic-list">
+          <li>《评审室里的九十分钟》创作幕后，评分表如何被填写</li>
+          <li>《一条投稿的七次修改》经验分享，从初剪到终版的差别</li>
+          <li>《平台如何校验原创》行业观察，正版内容的技术流程</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 创作者矩阵 -->
+<section class="dkc-section dkc-anchor" id="dkcAuthors">
+  <div class="dkc-wrap">
+    <h2 class="dkc-h2">创作者矩阵</h2>
+    <p class="dkc-h2-sub">他们让每日大赛聚集地不只是一个赛事平台，更是一个真实的创作社区</p>
+
+    <div class="dkc-author-grid">
+      <article class="dkc-author">
+        <div class="dkc-author-head">
+          <div class="dkc-avatar" style="background:linear-gradient(135deg,#ff5a3c,#ff9a3d)">夜</div>
+          <div>
+            <div class="dkc-author-name">夜行记</div>
+            <div class="dkc-author-field">城市探索 · 纪录短片</div>
+          </div>
+        </div>
+        <div class="dkc-author-nums"><span>作品 <b>86</b></span><span>粉丝 <b>12.4万</b></span></div>
+        <p class="dkc-author-bio">习惯在凌晨出门，用一台旧机子记录城市醒来前的样子。擅长固定机位与长镜头，作品多次入选城市影像专题。相信真实比精致更有力量，也愿意把拍摄路线与踩点经验公开分享给新人。</p>
+        <div class="dkc-actions" style="margin-top:12px;">
+          <button class="dkc-act" data-dkc-author="夜行记">查看档案</button>
+          <button class="dkc-act dkc-act--fav dkc-fav">关注</button>
+        </div>
+      </article>
+
+      <article class="dkc-author">
+        <div class="dkc-author-head">
+          <div class="dkc-avatar" style="background:linear-gradient(135deg,#3ddc97,#1f9d7a)">烤</div>
+          <div>
+            <div class="dkc-author-name">烤箱边的人</div>
+            <div class="dkc-author-field">美食烹饪 · 教程干货</div>
+          </div>
+        </div>
+        <div class="dkc-author-nums"><span>作品 <b>142</b></span><span>粉丝 <b>26.8万</b></span></div>
+        <p class="dkc-author-bio">前餐厅后厨，现全职内容创作者。擅长把复杂配方拆成可复现的步骤，每个视频都标注温度、时间与失败原因。坚持原创配方与正版配乐，认为一道菜的价值在于能被更多人在家做出来。</p>
+        <div class="dkc-actions" style="margin-top:12px;">
+          <button class="dkc-act" data-dkc-author="烤箱边的人">查看档案</button>
+          <button class="dkc-act dkc-act--fav dkc-fav">关注</button>
+        </div>
+      </article>
+
+      <article class="dkc-author">
+        <div class="dkc-author-head">
+          <div class="dkc-avatar" style="background:linear-gradient(135deg,#5b7cfa,#9b6bff)">慢</div>
+          <div>
+            <div class="dkc-author-name">慢跑的方向</div>
+            <div class="dkc-author-field">健康运动 · 日常记录</div>
+          </div>
+        </div>
+        <div class="dkc-author-nums"><span>作品 <b>64</b></span><span>粉丝 <b>8.9万</b></span></div>
+        <p class="dkc-author-bio">通勤族跑者，用视频记录训练与身体对话的过程。不追求速度，更在意可持续的节奏。内容包含训练计划、装备测评与赛前心理建设，希望陪伴更多普通人从零开始运动，并坚持下去。</p>
+        <div class="dkc-actions" style="margin-top:12px;">
+          <button class="dkc-act" data-dkc-author="慢跑的方向">查看档案</button>
+          <button class="dkc-act dkc-act--fav dkc-fav">关注</button>
+        </div>
+      </article>
+
+      <article class="dkc-author">
+        <div class="dkc-author-head">
+          <div class="dkc-avatar" style="background:linear-gradient(135deg,#ffd23f,#ff8a3d);color:#3a2600;">螺</div>
+          <div>
+            <div class="dkc-author-name">螺丝与光</div>
+            <div class="dkc-author-field">手作 DIY · 深度测评</div>
+          </div>
+        </div>
+        <div class="dkc-author-nums"><span>作品 <b>97</b></span><span>粉丝 <b>15.2万</b></span></div>
+        <p class="dkc-author-bio">维修工出身，喜欢把坏掉的东西拆开再装回去。视频以工具清单、故障定位与成本核算见长，被不少观众当作入门维修手册。坚持不摆拍、不夸大，坏的就说坏，能修才演示。</p>
+        <div class="dkc-actions" style="margin-top:12px;">
+          <button class="dkc-act" data-dkc-author="螺丝与光">查看档案</button>
+          <button class="dkc-act dkc-act--fav dkc-fav">关注</button>
+        </div>
+      </article>
+
+      <article class="dkc-author">
+        <div class="dkc-author-head">
+          <div class="dkc-avatar" style="background:linear-gradient(135deg,#2b9fdd,#3ddc97)">赛</div>
+          <div>
+            <div class="dkc-author-name">赛事观察室</div>
+            <div class="dkc-author-field">行业观察 · 人物访谈</div>
+          </div>
+        </div>
+        <div class="dkc-author-nums"><span>作品 <b>53</b></span><span>粉丝 <b>6.3万</b></span></div>
+        <p class="dkc-author-bio">由两位前影视记者共同运营，专注赛事与内容生态的观察写作。访谈对象覆盖导演、剪辑师与赛事主办方，视角克制、信息密度高，常被创作者作为投赛前的参考材料。</p>
+        <div class="dkc-actions" style="margin-top:12px;">
+          <button class="dkc-act" data-dkc-author="赛事观察室">查看档案</button>
+          <button class="dkc-act dkc-act--fav dkc-fav">关注</button>
+        </div>
+      </article>
+
+      <article class="dkc-author">
+        <div class="dkc-author-head">
+          <div class="dkc-avatar" style="background:linear-gradient(135deg,#ff7ba8,#9b6bff)">早</div>
+          <div>
+            <div class="dkc-author-name">早市摄影小组</div>
+            <div class="dkc-author-field">在地文化 · 治愈影像</div>
+          </div>
+        </div>
+        <div class="dkc-author-nums"><span>作品 <b>71</b></span><span>粉丝 <b>11.1万</b></span></div>
+        <p class="dkc-author-bio">六个人的在地影像小组，固定记录早市的摊主与常客。作品节奏缓慢，配乐多采用现场环境声，强调包容与陪伴。小组定期开放拍摄同行名额，欢迎新人加入一次通宵跟拍。</p>
+        <div class="dkc-actions" style="margin-top:12px;">
+          <button class="dkc-act" data-dkc-author="早市摄影小组">查看档案</button>
+          <button class="dkc-act dkc-act--fav dkc-fav">关注</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 平台深度解析 -->
+<section class="dkc-section dkc-anchor" id="dkcInsight">
+  <div class="dkc-wrap">
+    <h2 class="dkc-h2">平台深度解析：每日大赛聚集地是什么</h2>
+    <p class="dkc-h2-sub">一段关于赛事、创作者与内容生态的完整说明</p>
+
+    <div class="dkc-article">
+      <h3>从一场比赛到一个持续的赛事内容平台</h3>
+      <p>每日大赛聚集地最初只是一个简单的问题：每天有那么多比赛在发生，为什么普通人很难知道自己能参加哪些？有的赛事只在一个小圈子里传播，有的报名截止后才被看见，有的作品投出去就再无回音。我们决定做一件事——把每天正在开放的赛事、正在被评审的作品、正在被讨论的创作者，集中放到一个清晰、可信、可检索的页面上。这就是<strong>每日大赛聚集地</strong>的起点。</p>
+      <p>几年下来，平台从一个赛事信息汇集页，长成了一个垂直领域的视频内容社区。我们与赛事主办方、品牌方、独立评审共同维护一套公开的收录标准：赛事基本信息完整、评审规则可查、版权归属明确、结果公示有时间表。只有满足这些条件的赛事才会进入官方发布列表。对创作者来说，这意味着查找赛事时不必再反复甄别真伪；对主办方来说，这也是一份对内容品质与选手体验的承诺。</p>
+
+      <h3>赛事、创作者与内容生态如何运转</h3>
+      <p>平台的核心结构并不复杂：赛事是入口，作品是内容，创作者是长期资产。每一场赛事在平台上都有一个独立的赛事页，包含赛程、命题、投稿要求、评审构成与历届获奖作品。创作者可以直接在赛事页完成投稿、查看评审进度、下载参赛证明。作品被收录后，会进入平台的精品内容池，按赛道、题材与时长进行分类，供其他创作者检索参考。</p>
+      <p>我们特别重视「可学习性」。一场比赛的获奖作品如果只被赞叹，而不被拆解，对社区的帮助是有限的。因此平台要求重点赛事的获奖作者提供一份创作说明，写清拍摄条件、剪辑思路与踩过的坑。这些说明与作品一起展示，构成平台独有的经验内容层。许多新人正是从这些说明开始，第一次理解构图、节奏与声音设计在真实创作中的分量。我们相信，<strong>内容生态</strong>的价值不在于数量，而在于每一条内容能否被后来者真正用上。</p>
+
+      <h3>原创、正版与高清：平台的三条底线</h3>
+      <p>视频内容领域最容易被忽视的是版权。平台对投稿设有明确要求：影像素材须为创作者原创或已获授权，音乐须使用正版曲库或原创配乐，引用他人作品须标注来源与使用范围。所有投稿在上线前都会经过一轮原创性校验，包括关键帧比对与音频指纹检测。对于存在争议的作品，平台会先行下架并通知作者补充材料，而不是等争议扩大后再处理。这套流程并不轻松，但我们认为，一个值得信赖的赛事平台必须先把底线立住。</p>
+      <p>高清同样是基础要求。平台对重点赛事的投稿设定最低分辨率与码率标准，并在播放端提供多档清晰度自适应。我们并不追求把每一帧都修得完美，但坚持让作品以创作者希望的样子被看见。正版、高清、原创这三个词，在每日大赛聚集地不是宣传语，而是每天都要执行的工作标准。</p>
+
+      <h3>社区、口碑与长期陪伴</h3>
+      <p>平台真正活跃的地方在评论区与创作者主页。一次投稿之后，作者往往会收到来自同赛道创作者的具体建议，而不是泛泛的夸奖。这种克制的交流氛围是长期运营积累出来的：我们鼓励具体、有依据的评价，对人身攻击与恶意刷量设有明确的处理规则。许多创作者告诉我们，他们留在平台的原因不是奖金，而是这里有人认真看完了作品。</p>
+      <p>在赛事之外，平台持续运营新人扶持计划、评审圆桌、创作灵感专栏与季度专题。新人扶持计划每期为入选创作者提供高清素材资源、剪辑软件授权与一次一对一作品诊断；评审圆桌则把评分逻辑公开，让参赛者理解自己为何胜出或落选。我们相信成长不是一次比赛的结果，而是一段被陪伴的过程。每日大赛聚集地希望成为那个稳定的陪伴者：不喧哗，但在每一个比赛日准时出现，把真实的、原创的、有力量的作品，送到愿意看见它们的人面前。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 用户评价 -->
+<section class="dkc-section dkc-anchor" id="dkcComments">
+  <div class="dkc-wrap">
+    <h2 class="dkc-h2">用户口碑与创作者评价</h2>
+    <p class="dkc-h2-sub">来自参赛者、观众与主办方的真实反馈，构成每日大赛聚集地的口碑基础</p>
+
+    <div class="dkc-comment-grid">
+      <article class="dkc-comment">
+        <div class="dkc-comment-head">
+          <div class="dkc-comment-avatar" style="background:#ff5a3c">林</div>
+          <div><div class="dkc-comment-name">林一帧</div><div class="dkc-comment-time">参赛者 · 2 天前</div></div>
+        </div>
+        <p class="dkc-comment-text">第一次投稿就被评审写了三百多字的意见，指出了我开场三十秒信息过载的问题。改完之后重投，进了入围名单。这种反馈在别的地方很难拿到。</p>
+        <div class="dkc-stars">★★★★★</div>
+      </article>
+
+      <article class="dkc-comment">
+        <div class="dkc-comment-head">
+          <div class="dkc-comment-avatar" style="background:#3ddc97">周</div>
+          <div><div class="dkc-comment-name">周末不加班</div><div class="dkc-comment-time">观众 · 3 天前</div></div>
+        </div>
+        <p class="dkc-comment-text">我基本不看短视频，但这个平台的赛事专题我会追。节奏慢一点，但每一条都像认真做过的。</p>
+        <div class="dkc-stars">★★★★☆</div>
+      </article>
+
+      <article class="dkc-comment">
+        <div class="dkc-comment-head">
+          <div class="dkc-comment-avatar" style="background:#5b7cfa">陈</div>
+          <div><div class="dkc-comment-name">陈老师拍片</div><div class="dkc-comment-time">创作者 · 5 天前</div></div>
+        </div>
+        <p class="dkc-comment-text">版权校验严格是好事。之前有平台把我的片子转得到处都是，这里投稿会先确认授权链路，虽然麻烦，但我愿意。</p>
+        <div class="dkc-stars">★★★★★</div>
+      </article>
+
+      <article class="dkc-comment">
+        <div class="dkc-comment-head">
+          <div class="dkc-comment-avatar" style="background:#ffd23f;color:#3a2600">主</div>
+          <div><div class="dkc-comment-name">某城市影像节主办方</div><div class="dkc-comment-time">合作方 · 1 周前</div></div>
+        </div>
+        <p class="dkc-comment-text">我们把征片入口放在这里之后，有效投稿率明显提升。赛事页的字段设计很专业，选手提交的作品信息基本不用二次整理。作为合作方，流程稳定比流量更重要。</p>
+        <div class="dkc-stars">★★★★★</div>
+      </article>
+
+      <article class="dkc-comment">
+        <div class="dkc-comment-head">
+          <div class="dkc-comment-avatar" style="background:#9b6bff">阿</div>
+          <div><div class="dkc-comment-name">阿May在剪片</div><div class="dkc-comment-time">新人 · 4 天前</div></div>
+        </div>
+        <p class="dkc-comment-text">新人计划给的那次作品诊断很实在，老师直接在我的时间轴上标了七处可以删的地方。删完短了四十秒，反而更好看。</p>
+        <div class="dkc-stars">★★★★★</div>
+      </article>
+
+      <article class="dkc-comment">
+        <div class="dkc-comment-head">
+          <div class="dkc-comment-avatar" style="background:#2b9fdd">老</div>
+          <div><div class="dkc-comment-name">老周修相机</div><div class="dkc-comment-time">创作者 · 6 天前</div></div>
+        </div>
+        <p class="dkc-comment-text">页面清爽，找赛事不用翻半天。唯一的建议是希望能按拍摄设备筛选，有时候只想看手机拍的片子。</p>
+        <div class="dkc-stars">★★★★☆</div>
+      </article>
+
+      <article class="dkc-comment">
+        <div class="dkc-comment-head">
+          <div class="dkc-comment-avatar" style="background:#ff7ba8">小</div>
+          <div><div class="dkc-comment-name">小满的日常</div><div class="dkc-comment-time">观众 · 1 天前</div></div>
+        </div>
+        <p class="dkc-comment-text">喜欢这里评论区的氛围，大家会具体说哪一镜好、哪一段拖。不像有些地方上来就是一句“拍得不错”。</p>
+        <div class="dkc-stars">★★★★★</div>
+      </article>
+
+      <article class="dkc-comment">
+        <div class="dkc-comment-head">
+          <div class="dkc-comment-avatar" style="background:#1f9d7a">剪</div>
+          <div><div class="dkc-comment-name">剪辑台前的猫</div><div class="dkc-comment-time">参赛者 · 2 周前</div></div>
+        </div>
+        <p class="dkc-comment-text">公示节奏很清楚，什么时候初评、什么时候出结果都写在赛事页上。不用天天刷消息等通知，这点我很感激。</p>
+        <div class="dkc-stars">★★★★★</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 企业动态 + 合作 -->
+<section class="dkc-section dkc-anchor" id="dkcNews">
+  <div class="dkc-wrap">
+    <h2 class="dkc-h2">企业动态与合作伙伴</h2>
+    <p class="dkc-h2-sub">平台持续运营的公开记录，以及与我们共建内容生态的伙伴</p>
+
+    <div class="dkc-news-list">
+      <div class="dkc-news-item">
+        <div class="dkc-news-date">2026-11-20</div>
+        <div>
+          <div class="dkc-news-title">冬季挑战赛报名进入倒计时，新增实验影像赛道</div>
+          <div class="dkc-news-desc">应创作者建议，本届赛事增设实验影像单元，接受非叙事结构的影像表达，评审标准与纪录赛道分开公布。</div>
+        </div>
+      </div>
+      <div class="dkc-news-item">
+        <div class="dkc-news-date">2026-11-14</div>
+        <div>
+          <div class="dkc-news-title">新人扶持计划第 6 期名单公布，128 位创作者入选</div>
+          <div class="dkc-news-desc">入选者将获得高清素材资源包、剪辑软件授权与一次一对一作品诊断，扶持周期为三个月。</div>
+        </div>
+      </div>
+      <div class="dkc-news-item">
+        <div class="dkc-news-date">2026-11-06</div>
+        <div>
+          <div class="dkc-news-title">平台完成年度原创性校验流程升级</div>
+          <div class="dkc-news-desc">新增音频指纹比对环节，投稿上线前的校验时长平均缩短至 6 小时，争议作品处理流程同步公开。</div>
+        </div>
+      </div>
+      <div class="dkc-news-item">
+        <div class="dkc-news-date">2026-10-28</div>
+        <div>
+          <div class="dkc-news-title">与四家赛事主办方达成年度内容生态合作</div>
+          <div class="dkc-news-desc">合作覆盖城市影像、纪录短片与青年创作三个方向，获奖作品将在平台专题页集中展映。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dkc-partner-grid" style="margin-top:32px;">
+      <div class="dkc-partner">城市影像节<small>年度征片合作</small></div>
+      <div class="dkc-partner">青年创作基金<small>新人扶持合作</small></div>
+      <div class="dkc-partner">正版音乐库<small>配乐授权支持</small></div>
+      <div class="dkc-partner">影像设备实验室<small>器材评测支持</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="dkc-section dkc-anchor" id="dkcFaq">
+  <div class="dkc-wrap">
+    <h2 class="dkc-h2">帮助中心</h2>
+    <p class="dkc-h2-sub">关于参赛、投稿与版权的常见问题，均可在每日大赛聚集地官网查阅</p>
+
+    <div class="dkc-faq-list">
+      <details>
+        <summary>如何报名参赛？需要准备哪些材料？</summary>
+        <div class="dkc-faq-answer">在赛事页点击「报名参赛」填写基本信息即可。需要准备：原创作品文件或可访问链接、作品简介 100 字以内、创作说明一份（重点赛事必填）、以及配乐与素材的授权说明。信息提交后可在个人主页查看审核进度。</div>
+      </details>
+      <details>
+        <summary>投稿作品有分辨率与时长要求吗？</summary>
+        <div class="dkc-faq-answer">重点赛事要求分辨率不低于 1080p、码率不低于 8Mbps，时长按赛道规定执行，通常为 1 至 3 分钟。非重点赛事可接受 720p 起的投稿，但进入精品内容池需补充高清版本。</div>
+      </details>
+      <details>
+        <summary>平台如何判定作品是否原创？</summary>
+        <div class="dkc-faq-answer">投稿上线前会进行关键帧比对与音频指纹检测，同时人工核对素材授权说明。涉及引用他人作品的部分，需标注来源与使用范围。存在争议的作品会先行下架，通知作者补充材料后再复核。</div>
+      </details>
+      <details>
+        <summary>评审结果什么时候公布？可以申诉吗？</summary>
+        <div class="dkc-faq-answer">每场赛事的初评与终评时间表均在赛事页公示，结果按公示时间发布。作者可在结果公布后 7 天内提交书面申诉，平台将在 5 个工作日内答复，申诉不影响后续赛事参与资格。</div>
+      </details>
+      <details>
+        <summary>获奖作品的使用权归谁？</summary>
+        <div class="dkc-faq-answer">作品著作权始终归创作者所有。平台与主办方仅在赛事宣传、专题展映范围内获得非独占展示授权。如需商业使用，会另行签署授权协议并支付费用。</div>
+      </details>
+      <details>
+        <summary>新人扶持计划如何申请？</summary>
+        <div class="dkc-faq-answer">每期开放申请时会在企业动态与专题页同时公布入口，需提交两支以上原创作品、一份创作自述与一个具体的提升目标。评选看重表达潜力与持续产出意愿，而非粉丝数量。</div>
+      </details>
+      <details>
+        <summary>平台是否收取报名费用？</summary>
+        <div class="dkc-faq-answer">平台自营赛事均为免费报名。合作赛事若涉及费用，会在赛事页明确标示收取主体与用途，平台不代收、不抽成。任何未在页面公示的收费要求，都可直接通过反馈入口举报。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 投稿 CTA -->
+<section class="dkc-section">
+  <div class="dkc-wrap">
+    <div class="dkc-cta-box">
+      <div>
+        <h3>你的下一支片，从这里开始</h3>
+        <p>每日大赛聚集地持续开放投稿与创作分享。无论是第一次举起手机，还是已经拍了十年的老手，这里都有一场正在等你参加的比赛。</p>
+      </div>
+      <div class="dkc-actions">
+        <button class="dkc-btn dkc-btn--primary" data-dkc-modal="dkcSubmitModal">立即投稿</button>
+        <button class="dkc-btn dkc-btn--ghost" data-dkc-modal="dkcShareModal">分享本页</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="dkc-footer">
+  <div class="dkc-wrap">
+    <div class="dkc-footer-grid">
+      <div class="dkc-footer-brand">
+        <div class="dkc-logo">
+          <span class="dkc-logo-mark">
+            <svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>
+          </span>
+          <span class="dkc-logo-text">每日大赛聚集地<small>DAILY ARENA</small></span>
+        </div>
+        <p>每日大赛聚集地官方网站 · 专注赛事与原创影像的内容平台。我们持续运营赛事收录、作品展映与创作者扶持，坚持正版、高清、原创的内容标准，致力于成为用户首选的赛事内容社区。</p>
+      </div>
+      <div>
+        <h4>探索</h4>
+        <ul>
+          <li><a href="#dkcFocus">焦点赛事</a></li>
+          <li><a href="#dkcTopics">专题企划</a></li>
+          <li><a href="#dkcAuthors">创作者</a></li>
+          <li><a href="#dkcInsight">平台解析</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与</h4>
+        <ul>
+          <li><a href="#dkcNews">企业动态</a></li>
+          <li><a href="#dkcFaq">帮助中心</a></li>
+          <li><a href="#" data-dkc-modal="dkcSubmitModal">投稿入口</a></li>
+          <li><a href="#" data-dkc-modal="dkcReportModal">反馈举报</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <ul>
+          <li>合作邮箱：arena@dailyarena.example</li>
+          <li>投稿咨询：工作日 10:00 - 19:00</li>
+          <li>赛事通道：赛事页内在线提交</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dkc-footer-bottom">
+      <span>© 2026 每日大赛聚集地 版权所有 · 持续运营中</span>
+      <span>内容备案号：赛事内容备 2026-1147 号 · 官方发布</span>
+    </div>
+  </div>
+</footer>
+
+<button class="dkc-top-btn" id="dkcTopBtn" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24"><path d="M12 4l9 9h-6v7h-6v-7H3z"/></svg>
+</button>
+
+<div class="dkc-toast" id="dkcToast"></div>
+
+<!-- 分享弹窗 -->
+<div class="dkc-modal" id="dkcShareModal">
+  <div class="dkc-modal-box">
+    <button class="dkc-modal-close" data-dkc-close aria-label="关闭">×</button>
+    <h3>分享本页</h3>
+    <p>把每日大赛聚集地分享给更多创作者，或复制链接在任意平台打开。</p>
+    <div class="dkc-share-row">
+      <button data-dkc-copy>复制链接</button>
+      <button data-dkc-toastmsg="已生成微信分享提示，请在微信中粘贴打开">微信</button>
+      <button data-dkc-toastmsg="已生成微博分享提示，请在微博中粘贴打开">微博</button>
+      <button data-dkc-toastmsg="已生成 QQ 分享提示，请在 QQ 中粘贴打开">QQ</button>
+    </div>
+  </div>
+</div>
+
+<!-- 投稿弹窗 -->
+<div class="dkc-modal" id="dkcSubmitModal">
+  <div class="dkc-modal-box">
+    <button class="dkc-modal-close" data-dkc-close aria-label="关闭">×</button>
+    <h3>投稿参赛</h3>
+    <p>填写基本信息，赛事编辑会在两个工作日内与你联系并确认投稿要求。</p>
+    <input class="dkc-modal-field" type="text" placeholder="你的昵称" aria-label="昵称">
+    <input class="dkc-modal-field" type="text" placeholder="意向赛事 / 赛道" aria-label="意向赛事">
+    <input class="dkc-modal-field" type="text" placeholder="作品链接或简要说明" aria-label="作品说明">
+    <button class="dkc-btn dkc-btn--primary" data-dkc-toastmsg="投稿信息已记录，编辑会尽快联系你">提交投稿</button>
+  </div>
+</div>
+
+<!-- 反馈弹窗 -->
+<div class="dkc-modal" id="dkcReportModal">
+  <div class="dkc-modal-box">
+    <button class="dkc-modal-close" data-dkc-close aria-label="关闭">×</button>
+    <h3>反馈与举报</h3>
+    <p>如发现版权争议、违规收费或不当内容，请在此说明，平台将按流程核查处理。</p>
+    <input class="dkc-modal-field" type="text" placeholder="问题类型：版权 / 收费 / 内容 / 其他" aria-label="问题类型">
+    <input class="dkc-modal-field" type="text" placeholder="涉及页面或作品名称" aria-label="涉及页面">
+    <input class="dkc-modal-field" type="text" placeholder="补充说明" aria-label="补充说明">
+    <button class="dkc-btn dkc-btn--primary" data-dkc-toastmsg="反馈已提交，我们将按规定时限核查">提交反馈</button>
+  </div>
+</div>
+
+<!-- 作者弹窗 -->
+<div class="dkc-modal" id="dkcAuthorModal">
+  <div class="dkc-modal-box dkc-author-modal">
+    <button class="dkc-modal-close" data-dkc-close aria-label="关闭">×</button>
+    <div class="dkc-avatar" id="dkcAuthorAvatar">夜</div>
+    <h3 id="dkcAuthorTitle">创作者档案</h3>
+    <p id="dkcAuthorDetail"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var toastEl = document.getElementById('dkcToast');
+  var toastTimer = null;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('dkc-show');
+    if(toastTimer){ clearTimeout(toastTimer); }
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('dkc-show'); }, 2200);
+  }
+
+  /* 移动端导航 */
+  var burger = document.getElementById('dkcBurger');
+  var nav = document.getElementById('dkcNav');
+  if(burger && nav){
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('dkc-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('dkc-open');
+        burger.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* 搜索反馈 */
+  var searchInput = document.getElementById('dkcSearchInput');
+  var searchBtn = document.getElementById('dkcSearchBtn');
+  var searchFb = document.getElementById('dkcSearchFeedback');
+  var searchData = [
+    {k:'冬季', t:'匹配到 3 场赛事：11·22 冬季影像挑战赛 / 寒冬热气计划 / 冬季新人专场'},
+    {k:'新人', t:'匹配到新人扶持计划第 6 期、新人第一支片专题共 5 条内容'},
+    {k:'夜行', t:'匹配到创作者「夜行记」，86 支城市探索作品'},
+    {k:'版权', t:'匹配到帮助中心版权相关 2 条说明与校验流程介绍'},
+    {k:'纪录', t:'匹配到纪录赛道 4 条入围作品与 1 场在办赛事'}
+  ];
+  function doSearch(){
+    var val = (searchInput.value || '').trim();
+    if(!val){
+      searchFb.textContent = '输入赛事、创作者或专题关键词试试，例如「冬季」「新人」「版权」。';
+      searchFb.classList.add('dkc-show');
+      return;
+    }
+    var hit = null;
+    for(var i=0;i<searchData.length;i++){
+      if(val.indexOf(searchData[i].k) !== -1 || searchData[i].k.indexOf(val) !== -1){ hit = searchData[i]; break; }
+    }
+    if(hit){
+      searchFb.textContent = hit.t;
+    }else{
+      searchFb.textContent = '暂未找到「' + val + '」的直接结果，可尝试缩短关键词，或前往帮助中心提交需求。';
+    }
+    searchFb.classList.add('dkc-show');
+  }
+  if(searchBtn){ searchBtn.addEventListener('click', doSearch); }
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ doSearch(); } });
+    searchInput.addEventListener('blur', function(){ setTimeout(function(){ searchFb.classList.remove('dkc-show'); }, 2600); });
+  }
+
+  /* 点赞 */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('.dkc-like');
+    if(!likeBtn){ return; }
+    var b = likeBtn.querySelector('b');
+    var base = parseInt(likeBtn.getAttribute('data-count'), 10) || 0;
+    if(!likeBtn.classList.contains('dkc-on')){
+      likeBtn.classList.add('dkc-on');
+      var n = base + 1;
+      b.textContent = n >= 10000 ? (n/10000).toFixed(2).replace(/0+$/,'').replace(/\.$/,'') + '万' : n;
+    }else{
+      likeBtn.classList.remove('dkc-on');
+      b.textContent = base >= 10000 ? (base/10000).toFixed(2).replace(/0+$/,'').replace(/\.$/,'') + '万' : base;
+    }
+  });
+
+  /* 收藏 */
+  document.addEventListener('click', function(e){
+    var fav = e.target.closest('.dkc-fav');
+    if(!fav){ return; }
+    var on = fav.classList.toggle('dkc-on');
+    fav.textContent = on ? '已收藏' : '收藏';
+    showToast(on ? '已加入收藏，可在个人页查看' : '已取消收藏');
+  });
+
+  /* 弹窗通用 */
+  var modals = document.querySelectorAll('.dkc-modal');
+  function closeAll(){
+    for(var i=0;i<modals.length;i++){ modals[i].classList.remove('dkc-open'); }
+  }
+  document.addEventListener('click', function(e){
+    var opener = e.target.closest('[data-dkc-modal]');
+    if(opener){
+      e.preventDefault();
+      var id = opener.getAttribute('data-dkc-modal');
+      var m = document.getElementById(id);
+      if(m){ closeAll(); m.classList.add('dkc-open'); }
+      return;
+    }
+    if(e.target.closest('[data-dkc-close]')){ closeAll(); return; }
+    if(e.target.classList.contains('dkc-modal')){ closeAll(); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeAll(); } });
+
+  /* Toast 触发按钮 */
+  document.addEventListener('click', function(e){
+    var tMsg = e.target.closest('[data-dkc-toastmsg]');
+    if(tMsg){
+      showToast(tMsg.getAttribute('data-dkc-toastmsg'));
+      if(tMsg.closest('.dkc-modal')){ closeAll(); }
+    }
+  });
+
+  /* 复制链接 */
+  document.addEventListener('click', function(e){
+    var c = e.target.closest('[data-dkc-copy]');
+    if(!c){ return; }
+    var done = function(){ showToast('链接已复制，欢迎分享给创作者朋友'); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText('每日大赛聚集地 · 赛事与原创影像内容平台').then(done).catch(function(){
+        showToast('当前环境无法自动复制，请手动选取分享');
+      });
+    }else{
+      showToast('当前环境无法自动复制，请手动选取分享');
+    }
+  });
+
+  /* 作者档案弹窗 */
+  var authorInfo = {
+    '夜行记': {a:'夜', g:'linear-gradient(135deg,#ff5a3c,#ff9a3d)', d:'城市探索纪录创作者，作品 86 支，粉丝 12.4 万。擅长固定机位与长镜头，长期记录城市凌晨的空间与人群，代表作为《地铁末班车里的三十种表情》。'},
+    '烤箱边的人': {a:'烤', g:'linear-gradient(135deg,#3ddc97,#1f9d7a)', d:'美食烹饪教程创作者，作品 142 支，粉丝 26.8 万。前餐厅后厨，擅长把复杂配方拆为可复现步骤，每个视频标注温度、时间与失败原因。'},
+    '慢跑的方向': {a:'慢', g:'linear-gradient(135deg,#5b7cfa,#9b6bff)', d:'健康运动纪录创作者，作品 64 支，粉丝 8.9 万。通勤族跑者，内容覆盖训练计划、装备测评与赛前心理建设，强调可持续的运动节奏。'},
+    '螺丝与光': {a:'螺', g:'linear-gradient(135deg,#ffd23f,#ff8a3d)', d:'手作与深度测评创作者，作品 97 支，粉丝 15.2 万。维修工出身，视频以工具清单、故障定位与成本核算见长，被观众当作入门维修手册使用。'},
+    '赛事观察室': {a:'赛', g:'linear-gradient(135deg,#2b9fdd,#3ddc97)', d:'行业观察与访谈账号，由两位前影视记者运营，作品 53 支，粉丝 6.3 万。访谈覆盖导演、剪辑师与赛事主办方，视角克制、信息密度高。'},
+    '早市摄影小组': {a:'早', g:'linear-gradient(135deg,#ff7ba8,#9b6bff)', d:'在地文化影像小组，六人协作，作品 71 支，粉丝 11.1 万。作品节奏缓慢，多用现场环境声，定期开放拍摄同行名额，欢迎新人参与通宵跟拍。'}
+  };
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-dkc-author]');
+    if(!btn){ return; }
+    var name = btn.getAttribute('data-dkc-author');
+    var info = authorInfo[name];
+    if(!info){ return; }
+    var av = document.getElementById('dkcAuthorAvatar');
+    av.textContent = info.a;
+    av.style.background = info.g;
+    document.getElementById('dkcAuthorTitle').textContent = name + ' · 创作者档案';
+    document.getElementById('dkcAuthorDetail').textContent = info.d;
+    closeAll();
+    document.getElementById('dkcAuthorModal').classList.add('dkc-open');
+  });
+
+  /* 回到顶部 */
+  var topBtn = document.getElementById('dkcTopBtn');
+  window.addEventListener('scroll', function(){
+    if(window.pageYOffset > 520){ topBtn.classList.add('dkc-show'); }
+    else{ topBtn.classList.remove('dkc-show'); }
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+  </html>
